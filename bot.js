@@ -143,7 +143,7 @@ function randomRetainer(message){
 		"**NIM: " + rollStats() + "\n" +
 		"**DIS: " + rollStats() + "\n" +
 		"**WIT: " + rollStats() + "\n" +
-		"**HP: " + roll() + "\n" +
+		"**HP: " + roll() + "**\n" +
 		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
 		randomFlavour() + "\n" +
 		"------------\n"
