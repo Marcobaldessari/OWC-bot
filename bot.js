@@ -139,11 +139,11 @@ function randomRetainer(message){
 		"------------\n" + 
 		"**" + randomName() + "**\n" + 
 		"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
-		"MIG: " + rollStats() + "\n" +
-		"NIM: " + rollStats() + "\n" +
-		"DIS: " + rollStats() + "\n" +
-		"WIT: " + rollStats() + "\n" +
-		"HP: " + roll() + "\n" +
+		"**MIG: " + rollStats() + "\n" +
+		"**NIM: " + rollStats() + "\n" +
+		"**DIS: " + rollStats() + "\n" +
+		"**WIT: " + rollStats() + "\n" +
+		"**HP: " + roll() + "\n" +
 		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
 		randomFlavour() + "\n" +
 		"------------\n"
