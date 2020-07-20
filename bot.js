@@ -60,4 +60,6 @@ function rollStats(){
 			return "0**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ")*"		
 	}
 }
+
 client.login(auth.token);
+// client.login(process.env.BOT_TOKEN);
