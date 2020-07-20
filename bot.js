@@ -18,15 +18,15 @@ client.on('message', (message) => {
 			]
 		  }
 		});
-	}
-	if (message.content == "have a good day!") {
-		message.channel.send("YOU have a good day " + message.author.username +", you beautiful creature! <3")
-	}
+	};
 
 	if (message.content == "you're cool bot") {
 		message.channel.send("you're cool too human 👊")
 	}
 
+	if (message.content == "s"){
+		randomCombatant(message);
+	}
 
 	if (message.content == "a" || message.content == "/character") {
 		var mig = rollStats();
@@ -40,7 +40,7 @@ client.on('message', (message) => {
 	}
   });
 
-  function roll (){
+function roll (){
 	return (Math.floor(Math.random() * 6) + 1)
 }
 
@@ -73,6 +73,34 @@ function rollStats(){
 	} else {
 			return "0**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ")*"		
 	}
+}
+
+function randomGender() {
+	if (Math.random()<0.5){
+		return "Male"
+	} else {
+		return "Female"
+	}
+}
+
+function price(){
+	return "(20 coins a day)"
+}
+
+function randomWeapon(){
+	return "Javelins(one-handed ranged)"
+}
+
+function randomShield(){
+	return "shield"
+}
+
+function randomFlavour(){
+	return "a former forester, they remind you of a crab"
+}
+
+function randomCombatant(message){
+	message.channel.send("let's do it");
 }
 
 // client.login(auth.token);
