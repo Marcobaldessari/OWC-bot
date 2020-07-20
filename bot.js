@@ -24,8 +24,16 @@ client.on('message', (message) => {
 		message.channel.send("you're cool too human 👊")
 	}
 
-	if (message.content == "s"){
+	if (message.content == "/porter"){
+		randomPorter(message);
+	}
+
+	if (message.content == "/combatant"){
 		randomCombatant(message);
+	}
+
+	if (message.content == "/retainer"){
+		randomRetainer(message);
 	}
 
 	if (message.content == "a" || message.content == "/character") {
@@ -103,18 +111,45 @@ function randomFlavour(){
 	return "a former forester, they remind you of a crab"
 }
 
-function randomCombatant(message){
+function randomPorter(message){
 	message.channel.send(
-	"------------\n" + 
-	"**" + randomName() + "**\n" + 
-	"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
-	"HP: " + roll() + "\n" +
-	randomWeapon() + " and " + randomArmour() + "\n" +
-	"\n" +
-	randomFlavour() + "\n" +
-	"------------\n"
+		"------------\n" + 
+		"**" + randomName() + "**\n" + 
+		"*" + randomGender() + " Porter " + randomPrice() + "*\n" +
+		"HP: " + roll() + "\n" +
+		randomFlavour() + "\n" +
+		"------------\n"
 	);
 }
+
+function randomCombatant(message){
+	message.channel.send(
+		"------------\n" + 
+		"**" + randomName() + "**\n" + 
+		"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
+		"HP: " + roll() + "\n" +
+		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
+		randomFlavour() + "\n" +
+		"------------\n"
+	);
+}
+
+function randomRetainer(message){
+	message.channel.send(
+		"------------\n" + 
+		"**" + randomName() + "**\n" + 
+		"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
+		"MIG: " + rollStats() + "\n" +
+		"NIM: " + rollStats() + "\n" +
+		"DIS: " + rollStats() + "\n" +
+		"WIT: " + rollStats() + "\n" +
+		"HP: " + roll() + "\n" +
+		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
+		randomFlavour() + "\n" +
+		"------------\n"
+	);
+}
+
 
 // client.login(auth.token);
 client.login(process.env.BOT_TOKEN);
