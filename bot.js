@@ -21,6 +21,7 @@ client.on('message', (message) => {
 	}
 
 	if (message.content == "a" || message.content == "/character") {
+		message.author.send("a");
 		message.channel.send("Alright then, we're going to start by rolling some attributes for your new character, shall we?\n------------\n**MIGht: " + rollStats() + "\n**NIMbleness: " + rollStats() + "\n**DISCipline: " + rollStats() + "\n**WITs: " + rollStats() + "\n**HP: " + roll() + "**\nWrite them on your character sheet before moving foward. \n------------\nNow, why don't you head to http://barrowmaze.wikidot.com/wiki:0-14-classes and pick a class?");
 		// message.reply("alright we're going to start by rolling some attributes for your new character, shall we?\n------------\n**MIGht: " + rollStats() + "\n**NIMbleness: " + rollStats() + "\n**DISCipline: " + rollStats() + "\n**WITs: " + rollStats() + "\n**HP: " + roll() + "**\nWrite them on your character sheet before moving foward. \n------------\nNow, why don't you head to http://barrowmaze.wikidot.com/wiki:0-14-classes and pick a class?");
 	}
