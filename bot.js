@@ -23,6 +23,10 @@ client.on('message', (message) => {
 		message.channel.send("YOU have a good day" + message.author.username +", you beautiful creature! <3")
 	}
 
+	if (message.content == "love you bot") {
+		message.channel.send("love you too hun")
+	}
+
 
 	if (message.content == "a" || message.content == "/character") {
 		var mig = rollStats();
