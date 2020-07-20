@@ -19,6 +19,10 @@ client.on('message', (message) => {
 		  }
 		});
 	}
+	if (message.content == "have a good day!") {
+		message.channel.send("YOU have a good day" + message.author.username +", you beautiful creature! <3")
+	}
+
 
 	if (message.content == "a" || message.content == "/character") {
 		var mig = rollStats();
