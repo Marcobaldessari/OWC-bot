@@ -24,7 +24,7 @@ client.on('message', (message) => {
 	}
 
 	if (message.content == "you're cool bot") {
-		message.channel.send("you're cool too man 👊")
+		message.channel.send("you're cool too human 👊")
 	}
 
 
