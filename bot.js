@@ -6,7 +6,7 @@ client.once('ready', () => {
 });
 
 client.on('message', (message) => {
-	const messageWords = message.content.split(' ');
+	const messageWords = message.content.split('*');
 
 	if (message.content == "!embed") {
 		message.channel.send({embed: {
@@ -36,7 +36,7 @@ client.on('message', (message) => {
 		randomRetainer(message);
 	}
 
-	if (message.content == "a" || message.content == "/character") {
+	if (messageWords[0] == "a" || message.content == "/character") {
 		newCharacter(message);
 	}
   });
@@ -111,7 +111,7 @@ function randomPorter(message){
 		"*" + randomGender() + " Porter " + randomPrice() + "*\n" +
 		"HP: " + roll() + "\n" +
 		randomFlavour() + "\n" +
-		"------------\n"
+		"------------"
 	);
 }
 
@@ -123,7 +123,7 @@ function randomCombatant(message){
 		"HP: " + roll() + "\n" +
 		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
 		randomFlavour() + "\n" +
-		"------------\n"
+		"------------"
 	);
 }
 
@@ -139,7 +139,7 @@ function randomRetainer(message){
 		"**HP: " + roll() + "**\n" +
 		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
 		randomFlavour() + "\n" +
-		"------------\n"
+		"------------"
 	);
 }
 
