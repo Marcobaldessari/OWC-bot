@@ -104,8 +104,10 @@ function randomFlavour(){
 }
 
 function randomCombatant(message){
-	message.channel.send("**" + randomName() + "**\n" + 
-	"*" + randomGender() + " Combatant " + randomPrice() + "*\n"
+	message.channel.send(
+	"------------\n" + 
+	"**" + randomName() + "**\n" + 
+	"*" + randomGender() + " Combatant " + randomPrice() + "*\n" 
 	);
 }
 
