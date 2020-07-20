@@ -95,7 +95,7 @@ function randomWeapon(){
 	return "Javelins(one-handed ranged)"
 }
 
-function randomShield(){
+function randomArmour(){
 	return "shield"
 }
 
@@ -107,7 +107,12 @@ function randomCombatant(message){
 	message.channel.send(
 	"------------\n" + 
 	"**" + randomName() + "**\n" + 
-	"*" + randomGender() + " Combatant " + randomPrice() + "*\n" 
+	"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
+	"HP: " + roll() + "\n" +
+	randomWeapon() + " and " + randomArmour() + "\n" +
+	"\n" +
+	randomFlavour() + "\n" +
+	"------------\n"
 	);
 }
 
