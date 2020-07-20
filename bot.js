@@ -83,7 +83,11 @@ function randomGender() {
 	}
 }
 
-function price(){
+function randomName(){
+	return "Alex"
+}
+
+function randomPrice(){
 	return "(20 coins a day)"
 }
 
@@ -100,7 +104,9 @@ function randomFlavour(){
 }
 
 function randomCombatant(message){
-	message.channel.send("let's do it");
+	message.channel.send("**" + randomName() + "**\n" + 
+	"*" + randomGender() + " Combatant " + randomPrice() + "*\n"
+	);
 }
 
 // client.login(auth.token);
