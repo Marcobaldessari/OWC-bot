@@ -6,8 +6,9 @@ module.exports = {
 	execute(message, args) {
 		var gender = randomGender();
 		if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
-
-		for (let i = 0; i < args; i++) {
+		
+		if(!args[0]){args[0] = 1};
+		for (let i = 0; i < args[0]; i++) {
 		message.channel.send(
 			`
 ------------
