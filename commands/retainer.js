@@ -18,7 +18,7 @@ module.exports = {
 **NIM: ${rollStats()}
 **DIS: ${rollStats()}
 **WIT: ${rollStats()}
-HP: ${roll()}
+**HP: ${roll()}**
 A former ${randomBackground()}, ${pronoun} ${randomFlair()}
 `
 			);

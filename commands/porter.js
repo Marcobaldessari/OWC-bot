@@ -5,6 +5,7 @@ module.exports = {
 	description: 'Create a porter character',
 	execute(message, args) {
 		var gender = randomGender();
+		
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
 			message.channel.send(
