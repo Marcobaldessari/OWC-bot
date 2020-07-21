@@ -1,46 +1,40 @@
-
+const fs = require('fs');
 const Discord = require('discord.js');
+const config = require('./config.json');
+const { prefix, token } = require('./config.json');
+const data = require('./data.json')
+
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
 
 client.once('ready', () => {
 	console.log('Ready!');
 });
 
 client.on('message', (message) => {
-	const messageWords = message.content.split('*');
-	const arg = messageWords[1];
-	
 
-	if (message.content == "!embed") {
-		message.channel.send({embed: {
-			color: 3447003,
-			title: "Test:",
-			fields: [
-			  { name: "Colonna 1", value: "Lorem\nIpsum\nDolor", inline: true},
-			  { name: "Colonna 2", value: "sit\namet\nconsectetur", inline: true}
-			]
-		  }
-		});
-	};
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-	if (message.content == "you're cool bot") {
-		message.channel.send("you're cool too human 👊")
+	const args = message.content.slice(prefix.length).trim().split(' ');
+	const command = args.shift().toLowerCase();
+
+	if (!client.commands.has(command)) return;
+
+	try {
+		client.commands.get(command).execute(message, args);
+	} catch (error) {
+		console.error(error);
+		message.reply('there was an error trying to execute that command!');
 	}
 
-	
-	if (message.content == "/porter"){
-		randomPorter(message);
-	}
-
-	if (message.content == "/combatant"){
-		randomCombatant(message);
-	}
-
-	if (message.content == "/retainer"){
-		randomRetainer(message);
-	}
-
-	if (messageWords[0] == "a" || message.content == "/character") {
+	if (message.content == "/character") {
 		newCharacter(message);
 	}
   });
@@ -80,86 +74,6 @@ function rollStats(){
 	}
 }
 
-function randomGender() {
-	if (Math.random()<0.5){
-		return "Male"
-	} else {
-		return "Female"
-	}
-}
-
-function randomName(){
-	return "Alex"
-}
-
-function randomPrice(){
-	return "(20 coins a day)"
-}
-
-function randomWeapon(){
-	return "Javelins(one-handed ranged)"
-}
-
-function randomArmour(){
-	return "shield"
-}
-
-function randomBackground(){
-	return "a former forester"
-}
-
-function randomFlavour(){
-	return "reminds you of a crab"
-}
-
-function randomPorter(message){
-	var gender = randomGender();
-	
-	message.channel.send(
-		"------------\n" + 
-		"**" + randomName() + "**\n" + 
-		"*" + gender + " Porter " + "(10 coins a day)" + "*\n" +
-		"HP: " + roll() + "\n" +
-		randomFlavour() + "\n" +
-		"------------"
-	);
-}
-
-function randomCombatant(message){
-	var pronoun;
-	var gender = randomGender();
-	if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
-
-	message.channel.send(
-		"------------\n" + 
-		"**" + randomName() + "**\n" + 
-		"*" + gender + " Combatant " + "(20 coins a day)" + "*\n" +
-		"HP: " + roll() + "\n" +
-		pronoun + " carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
-		randomFlavour() + "\n" +
-		"------------"
-	);
-}
-
-function randomRetainer(message){
-	var pronoun;
-	var gender = randomGender();
-	if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
-	
-	message.channel.send(
-		"------------\n" + 
-		"**" + randomName() + "**\n" + 
-		"*" + gender + " Combatant " + "(25% share)" + "*\n" +
-		"**MIG: " + rollStats() + "\n" +
-		"**NIM: " + rollStats() + "\n" +
-		"**DIS: " + rollStats() + "\n" +
-		"**WIT: " + rollStats() + "\n" +
-		"**HP: " + roll() + "**\n" +
-		pronoun + " carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
-		randomBackground() + ", " + pronoun + randomFlavour() + "\n" +
-		"------------"
-	);
-}
 
 function newCharacter(message){
 	var mig = rollStats();
@@ -173,14 +87,5 @@ function newCharacter(message){
 }
 
 // client.login(auth.token);
-client.login("NzM0MzMyNjAwODAxNTU4NTQ4.XxXfcA.dOhqEO8jiIie_rLLCrwlCbv594o");
-// client.login(process.env.BOT_TOKEN);
-
-
-
-
-function firstLetterUpper(theString) {
-	var newString = theString.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g,function(c){return c.toUpperCase()});
-  return newString;
-}
-
+// client.login("NzM0MzMyNjAwODAxNTU4NTQ4.XxXfcA.dOhqEO8jiIie_rLLCrwlCbv594o");
+client.login(process.env.BOT_TOKEN);
