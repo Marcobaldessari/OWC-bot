@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -7,6 +8,8 @@ client.once('ready', () => {
 
 client.on('message', (message) => {
 	const messageWords = message.content.split('*');
+	const arg = messageWords[1];
+	
 
 	if (message.content == "!embed") {
 		message.channel.send({embed: {
@@ -24,6 +27,7 @@ client.on('message', (message) => {
 		message.channel.send("you're cool too human 👊")
 	}
 
+	
 	if (message.content == "/porter"){
 		randomPorter(message);
 	}
@@ -100,15 +104,21 @@ function randomArmour(){
 	return "shield"
 }
 
+function randomBackground(){
+	return "a former forester"
+}
+
 function randomFlavour(){
-	return "a former forester, they remind you of a crab"
+	return "reminds you of a crab"
 }
 
 function randomPorter(message){
+	var gender = randomGender();
+	
 	message.channel.send(
 		"------------\n" + 
 		"**" + randomName() + "**\n" + 
-		"*" + randomGender() + " Porter " + randomPrice() + "*\n" +
+		"*" + gender + " Porter " + "(10 coins a day)" + "*\n" +
 		"HP: " + roll() + "\n" +
 		randomFlavour() + "\n" +
 		"------------"
@@ -116,29 +126,37 @@ function randomPorter(message){
 }
 
 function randomCombatant(message){
+	var pronoun;
+	var gender = randomGender();
+	if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
+
 	message.channel.send(
 		"------------\n" + 
 		"**" + randomName() + "**\n" + 
-		"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
+		"*" + gender + " Combatant " + "(20 coins a day)" + "*\n" +
 		"HP: " + roll() + "\n" +
-		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
+		pronoun + " carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
 		randomFlavour() + "\n" +
 		"------------"
 	);
 }
 
 function randomRetainer(message){
+	var pronoun;
+	var gender = randomGender();
+	if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
+	
 	message.channel.send(
 		"------------\n" + 
 		"**" + randomName() + "**\n" + 
-		"*" + randomGender() + " Combatant " + randomPrice() + "*\n" +
+		"*" + gender + " Combatant " + "(25% share)" + "*\n" +
 		"**MIG: " + rollStats() + "\n" +
 		"**NIM: " + rollStats() + "\n" +
 		"**DIS: " + rollStats() + "\n" +
 		"**WIT: " + rollStats() + "\n" +
 		"**HP: " + roll() + "**\n" +
-		"Carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
-		randomFlavour() + "\n" +
+		pronoun + " carries a " + randomWeapon() + " and " + randomArmour() + "\n" +
+		randomBackground() + ", " + pronoun + randomFlavour() + "\n" +
 		"------------"
 	);
 }
@@ -155,4 +173,14 @@ function newCharacter(message){
 }
 
 // client.login(auth.token);
-client.login(process.env.BOT_TOKEN);
+client.login("NzM0MzMyNjAwODAxNTU4NTQ4.XxXfcA.dOhqEO8jiIie_rLLCrwlCbv594o");
+// client.login(process.env.BOT_TOKEN);
+
+
+
+
+function firstLetterUpper(theString) {
+	var newString = theString.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g,function(c){return c.toUpperCase()});
+  return newString;
+}
+
