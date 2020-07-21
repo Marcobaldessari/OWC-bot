@@ -5,9 +5,10 @@ module.exports = {
 	description: 'Create a porter character',
 	execute(message, args) {
 		var gender = randomGender();
+		if(!args){args = 1};
 		for (let i = 0; i < args; i++) {
-		message.channel.send(
-			`
+			message.channel.send(
+				`
 ------------
 **${randomName()}**
 *${gender} Porter (10 coins a day)*
