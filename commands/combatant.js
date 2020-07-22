@@ -10,8 +10,10 @@ module.exports = {
 			var gender = randomGender();
 			if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
 			message.channel.send(`
+
 ------------
 **${randomName()}**
+------------
 *${gender} Combatant (20 coins a day)*
 HP: ${roll()}
 Carries a ${randomWeapon()} and a ${randomArmour()}

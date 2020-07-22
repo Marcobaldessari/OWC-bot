@@ -10,8 +10,10 @@ module.exports = {
 			gender = randomGender();
 			if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
 			message.channel.send(`
+
 ------------
 **${randomName()}**
+------------
 *${gender} retainer (25% share)*
 MIG: ${rollStats()}
 NIM: ${rollStats()}

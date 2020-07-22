@@ -11,8 +11,10 @@ module.exports = {
 		for (let i = 0; i < args[0]; i++) {
 			var gender = randomGender();
 			message.channel.send(`
+
 ------------
 **${randomName()}**
+------------
 *${gender} Porter (10 coins a day)*
 HP: ${roll()}
 Reminds you of a ${randomAnimal()}
