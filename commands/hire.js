@@ -8,9 +8,9 @@ module.exports = {
 	execute(message, args) {
 		people = Math.ceil(Math.random()*6);
 		if (people == 1) {
-			message.channel.send(`Hey ${message.author.username}, I'm sorry but I found only one person willing to assist in your expedition.`)
+			message.channel.send(`Hey ${message.author.username}, I'm sorry but I found only one person willing to assist you in your expedition.`)
 		} else {
-			message.channel.send(`Hey ${message.author.username}, I found ${people} people willing to assist in your expedition.`)
+			message.channel.send(`Hey ${message.author.username}, I found ${people} people willing to assist you in your expedition.`)
 		}
 		for (let i = 0; i < people; i++) {
 			var gender = randomGender();
