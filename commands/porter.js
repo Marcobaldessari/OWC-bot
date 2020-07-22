@@ -1,4 +1,5 @@
 const data = require('../data.json')
+var gender;
 
 module.exports = {
 	name: 'porter',
@@ -26,7 +27,11 @@ function roll (){
 }
 
 function randomName(){
-	return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
+	if (gender == "Male"){
+		return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
+	} else {
+		return data.femaleNames[(Math.floor(Math.random() * data.femaleNames.length))]
+	}
 }
 
 function randomWeapon(){
