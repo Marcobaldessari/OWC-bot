@@ -20,6 +20,7 @@ NIM: ${rollStats()}
 DIS: ${rollStats()}
 WIT: ${rollStats()}
 HP: ${roll()}
+Carries a ${randomWeapon()} and a ${randomArmour()}
 A former ${randomBackground()}, ${pronoun} reminds you of a ${randomAnimal()}
 			`);
 		}
