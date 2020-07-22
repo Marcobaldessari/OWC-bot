@@ -7,12 +7,16 @@ module.exports = {
 	description: 'Create a bunch of hirelings',
 	execute(message, args) {
 		people = Math.ceil(Math.random()*6);
-		message.channel.send(`Hey ${message.author.username}, I found ${people} people willing the assist in your expedition.`)
+		if (people == 1) {
+			message.channel.send(`Hey ${message.author.username}, I'm sorry but I found only one person willing to assist in your expedition.`)
+		} else {
+			message.channel.send(`Hey ${message.author.username}, I found ${people} people willing to assist in your expedition.`)
+		}
 		for (let i = 0; i < people; i++) {
 			var gender = randomGender();
 			message.channel.send(`
-------------
-**${randomName()}**
+
+**${randomName()}** ------------
 *${gender} Porter (10 coins a day)*
 HP: ${roll()}
 Reminds you of a ${randomAnimal()}
