@@ -4,19 +4,18 @@ module.exports = {
 	name: 'porter',
 	description: 'Create a porter character',
 	execute(message, args) {
-		var gender = randomGender();
+		
 		
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
-			message.channel.send(
-				`
+			var gender = randomGender();
+			message.channel.send(`
 ------------
 **${randomName()}**
 *${gender} Porter (10 coins a day)*
 HP: ${roll()}
-${randomFlair()}
-`
-			);
+Reminds you of a ${randomAnimal()}
+			`);
 		}
 	
 	},
@@ -53,3 +52,7 @@ function randomGender() {
 		return "Female"
 	}
 }	
+
+function randomAnimal(){
+	return data.animal[(Math.floor(Math.random() * data.animal.length))]
+}

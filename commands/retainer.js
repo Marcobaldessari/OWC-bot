@@ -1,30 +1,26 @@
 const data = require('../data.json')
+var gender;
 
 module.exports = {
 	name: 'retainer',
 	description: 'Create a retainer character',
 	execute(message, args) {
-		
-		
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
-			var gender = randomGender();
+			gender = randomGender();
 			if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
-			message.channel.send(
-			`
+			message.channel.send(`
 ------------
 **${randomName()}**
 *${gender} retainer (25% share)*
-**MIG: ${rollStats()}
-**NIM: ${rollStats()}
-**DIS: ${rollStats()}
-**WIT: ${rollStats()}
-**HP: ${roll()}**
+MIG: ${rollStats()}
+NIM: ${rollStats()}
+DIS: ${rollStats()}
+WIT: ${rollStats()}
+HP: ${roll()}
 A former ${randomBackground()}, ${pronoun} reminds you of a ${randomAnimal()}
-`
-			);
+			`);
 		}
-	
 	},
 };
 
