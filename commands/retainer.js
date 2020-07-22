@@ -4,12 +4,13 @@ module.exports = {
 	name: 'retainer',
 	description: 'Create a retainer character',
 	execute(message, args) {
-		var gender = randomGender();
-		if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
+		
 		
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
-		message.channel.send(
+			var gender = randomGender();
+			if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
+			message.channel.send(
 			`
 ------------
 **${randomName()}**
@@ -32,7 +33,10 @@ function roll (){
 }
 
 function randomName(){
-	return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
+	if (gender == "Male"){
+	} else {
+		return data.femaleNames[(Math.floor(Math.random() * data.femaleNames.length))]
+	}
 }
 
 function randomWeapon(){
@@ -63,29 +67,29 @@ function rollStats(){
 	var rolls = [roll(), roll(),roll()];
 	if(rolls[0] == rolls[1] && rolls[0] == rolls[2]){
 		if ( rolls[0] % 2 == 0) {
-			return "+2**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", even trebles!)*"
+			return "+2"
 		} else {
-			return "-2**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", odd trebles!)*"
+			return "-2"
 		}
 	} else if(rolls[0] == rolls[1]) {
 		if ( rolls[0] % 2 == 0) {
-			return "+1**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", even doubles!)*"
+			return "+1"
 		} else {
-			return "-1**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", odd doubles!)*"
+			return "-1"
 		}
 	} else if(rolls[1] == rolls[2]) {
 		if ( rolls[1] % 2 == 0) {
-			return "+1**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", even doubles!)*"
+			return "+1"
 		} else {
-			return "-1**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", odd doubles!)*"
+			return "-1"
 		}
 	} else if(rolls[0] == rolls[2]) {
 		if ( rolls[0] % 2 == 0) {
-			return "+1**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", even doubles!)*"
+			return "+1"
 		} else {
-			return "-1**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ", odd doubles!)*"
+			return "-1"
 		}
 	} else {
-			return "0**    *(" + rolls[0] + ", " + rolls[1] + ", " + rolls[2] + ")*"		
+			return "0"		
 	}
 }
