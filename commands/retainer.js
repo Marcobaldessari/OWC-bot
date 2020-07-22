@@ -20,7 +20,7 @@ module.exports = {
 **DIS: ${rollStats()}
 **WIT: ${rollStats()}
 **HP: ${roll()}**
-A former ${randomBackground()}, ${pronoun} ${randomFlair()}
+A former ${randomBackground()}, ${pronoun} reminds you of a ${randomAnimal()}
 `
 			);
 		}
@@ -34,6 +34,7 @@ function roll (){
 
 function randomName(){
 	if (gender == "Male"){
+		return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
 	} else {
 		return data.femaleNames[(Math.floor(Math.random() * data.femaleNames.length))]
 	}
@@ -49,6 +50,10 @@ function randomArmour(){
 
 function randomBackground(){
 	return data.background[(Math.floor(Math.random() * data.background.length))]
+}
+
+function randomAnimal(){
+	return data.animal[(Math.floor(Math.random() * data.animal.length))]
 }
 
 function randomFlair(){
