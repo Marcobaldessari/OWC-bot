@@ -1,4 +1,5 @@
 const data = require('../data.json')
+const porter = require('../commands/porter.js')
 var gender;
 var people;
 
@@ -14,15 +15,16 @@ module.exports = {
 		}
 		for (let i = 0; i < people; i++) {
 			var gender = randomGender();
-			message.channel.send(`
-			⠀
-------------
-**${randomName()}**
-------------
-*${gender} Porter (10 coins a day)*
-HP: ${roll()}
-Reminds you of a ${randomAnimal()}
-			`);
+			porter.execute();
+// 			message.channel.send(`
+// 			⠀
+// ------------
+// **${randomName()}**
+// ------------
+// *${gender} Porter (10 coins a day)*
+// HP: ${roll()}
+// Reminds you of a ${randomAnimal()}
+// 			`);
 		}
 	
 	},
