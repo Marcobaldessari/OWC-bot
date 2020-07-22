@@ -37,5 +37,5 @@ client.on('message', (message) => {
 
 
 // client.login(auth.token);
-// client.login("NzM0MzMyNjAwODAxNTU4NTQ4.XxXfcA.dOhqEO8jiIie_rLLCrwlCbv594o");
-client.login(process.env.BOT_TOKEN);
+client.login("NzM0MzMyNjAwODAxNTU4NTQ4.XxXfcA.dOhqEO8jiIie_rLLCrwlCbv594o");
+// client.login(process.env.BOT_TOKEN);
