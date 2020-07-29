@@ -16,7 +16,7 @@ module.exports = {
             // data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
             data.push('Here\'s what I can do:');
             data.push('**character:** roll some fresh stats to create a new character');
-            data.push('**hire [x]:** look around town for some help, generate a d6 or [x] random hirelings');
+            data.push('**hire [x]:** look around town for some help, generating a d6 or [x] random hirelings');
             data.push('**porter [x]:** generate [x] random porters');
             data.push('**combatant [x]:** generate [x] random combatants');
             data.push('**retainer [x]:** generate [x] random retainers');
