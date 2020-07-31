@@ -36,6 +36,5 @@ client.on('message', (message) => {
   });
 
 
-// client.login(auth.token);
-client.login(process.env.BOT_TOKEN);
- 
+client.login(token);
+// client.login(process.env.BOT_TOKEN);
