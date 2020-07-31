@@ -9,6 +9,8 @@ module.exports = {
 	name: 'hire',
 	description: 'Create a bunch of hirelings',
 	execute(message, args) {
+		const data = [];
+		
 		if(args[0]){
 			people = args[0]
 		}  else {
