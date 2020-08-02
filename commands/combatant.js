@@ -10,29 +10,20 @@ module.exports = {
 			var gender = randomGender();
 			if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
 			message.channel.send(`
-			⠀
-------------
-**${randomName()}**
-------------
-*${gender} Combatant (20 coins a day)*
-HP: ${roll()}
-Carries a ${randomWeapon()} and a ${randomArmour()}
-Reminds you of a ${randomAnimal()}
+				------------
+				**${randomName()}**
+				------------
+				*${gender} Combatant (20 coins a day)*
+				HP: ${roll()}
+				Carries a ${randomWeapon()} and a ${randomArmour()}
+				Reminds you of a ${randomAnimal()}
 			`);
 		}
 	},
 };
 
-function roll (){
-	return (Math.floor(Math.random() * 6) + 1)
-}
-
 function randomName(){
-	if (gender == "Male"){
-		return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
-	} else {
-		return data.femaleNames[(Math.floor(Math.random() * data.femaleNames.length))]
-	}
+	return data.[`${gender.toLowerCase()}Names`][(Math.floor(Math.random() * data[`${gender.toLowerCase()}Names`].length))]
 }
 
 function randomWeapon(){
@@ -51,13 +42,7 @@ function randomFlair(){
 	return data.flair[(Math.floor(Math.random() * data.flair.length))]
 }
 
-function randomGender() {
-	if (Math.random()<0.5){
-		return "Male"
-	} else {
-		return "Female"
-	}
-}
+function randomGender() => Math.random()<0.5 ? "Male" : "Female"; }
 
 function randomAnimal(){
 	return data.animal[(Math.floor(Math.random() * data.animal.length))]
