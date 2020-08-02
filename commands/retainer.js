@@ -1,5 +1,5 @@
 const data = require('../data.json')
-var gender;
+const Character = require('../person.js')
 
 module.exports = {
 	name: 'retainer',
@@ -7,93 +7,20 @@ module.exports = {
 	execute(message, args) {
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
-			gender = randomGender();
-			if (gender == "Male"){pronoun = "he"} else {pronoun = "she"}
+			var char = new Character('retainer');
 			message.channel.send(`
-			⠀
 ------------
-**${randomName()}**
+**${char.name}**
 ------------
-*${gender} retainer (25% share)*
-MIG: ${rollStats()}
-NIM: ${rollStats()}
-DIS: ${rollStats()}
-WIT: ${rollStats()}
-HP: ${roll()}
-Carries a ${randomWeapon()} and a ${randomArmour()}
-A former ${randomBackground()}, ${pronoun} reminds you of a ${randomAnimal()}
+*${char.gender} ${char.type} (${char.price})*
+MIG: ${char.stats.might.modifier}   (${char.stats.might.rolls})
+NIM: ${char.stats.nimb.modifier}   (${char.stats.nimb.rolls})
+DIS: ${char.stats.discipline.modifier}   (${char.stats.discipline.rolls})
+WIT: ${char.stats.wits.modifier}   (${char.stats.wits.rolls})
+HP: ${char.hp}
+Carries a ${char.weapon} and a ${char.armour}
+A former ${char.background}, reminds you of a ${char.animal}
 			`);
 		}
 	},
 };
-
-function roll (){
-	return (Math.floor(Math.random() * 6) + 1)
-}
-
-function randomName(){
-	if (gender == "Male"){
-		return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
-	} else {
-		return data.femaleNames[(Math.floor(Math.random() * data.femaleNames.length))]
-	}
-}
-
-function randomWeapon(){
-	return data.weapons[(Math.floor(Math.random() * data.weapons.length))]
-}
-
-function randomArmour(){
-	return data.armour[(Math.floor(Math.random() * data.armour.length))]
-}
-
-function randomBackground(){
-	return data.background[(Math.floor(Math.random() * data.background.length))]
-}
-
-function randomAnimal(){
-	return data.animal[(Math.floor(Math.random() * data.animal.length))]
-}
-
-function randomFlair(){
-	return data.flair[(Math.floor(Math.random() * data.flair.length))]
-}
-
-function randomGender() {
-	if (Math.random()<0.5){
-		return "Male"
-	} else {
-		return "Female"
-	}
-}
-
-function rollStats(){
-	var rolls = [roll(), roll(),roll()];
-	if(rolls[0] == rolls[1] && rolls[0] == rolls[2]){
-		if ( rolls[0] % 2 == 0) {
-			return "+2"
-		} else {
-			return "-2"
-		}
-	} else if(rolls[0] == rolls[1]) {
-		if ( rolls[0] % 2 == 0) {
-			return "+1"
-		} else {
-			return "-1"
-		}
-	} else if(rolls[1] == rolls[2]) {
-		if ( rolls[1] % 2 == 0) {
-			return "+1"
-		} else {
-			return "-1"
-		}
-	} else if(rolls[0] == rolls[2]) {
-		if ( rolls[0] % 2 == 0) {
-			return "+1"
-		} else {
-			return "-1"
-		}
-	} else {
-			return "0"		
-	}
-}

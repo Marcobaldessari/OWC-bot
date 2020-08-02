@@ -1,5 +1,5 @@
 const data = require('../data.json')
-var gender;
+const Character = require('../person.js')
 
 module.exports = {
 	name: 'porter',
@@ -7,45 +7,15 @@ module.exports = {
 	execute(message, args) {
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
-			var gender = randomGender();
+			var char = new Character('porter');
 			message.channel.send(`
 				------------
-				**${randomName()}**
+				**${char.name}**
 				------------
-				*${gender} Porter (10 coins a day)*
-				HP: ${roll()}
-				Reminds you of a ${randomAnimal()}
+				*${char.gender} ${char.type} (${char.price})*
+				HP: ${char.hp}
+				Reminds you of a ${char.animal}
 			`);
 		}
 	},
 };
-
-function roll (){
-	return (Math.floor(Math.random() * 6) + 1)
-}
-
-function randomName() {
-	return data.[`${gender.toLowerCase()}Names`][(Math.floor(Math.random() * data[`${gender.toLowerCase()}Names`].length))]
-}
-
-function randomWeapon(){
-	return data.weapons[(Math.floor(Math.random() * data.weapons.length))]
-}
-
-function randomArmour(){
-	return data.armour[(Math.floor(Math.random() * data.armour.length))]
-}
-
-function randomBackground(){
-	return data.background[(Math.floor(Math.random() * data.background.length))]
-}
-
-function randomFlair(){
-	return data.flair[(Math.floor(Math.random() * data.flair.length))]
-}
-
-function randomGender() => Math.random()<0.5 ? "Male" : "Female"; }
-
-function randomAnimal(){
-	return data.animal[(Math.floor(Math.random() * data.animal.length))]
-}
