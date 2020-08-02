@@ -5,22 +5,18 @@ module.exports = {
 	name: 'porter',
 	description: 'Create a porter character',
 	execute(message, args) {
-		
-		
 		if(!args[0]){args[0] = 1};
 		for (let i = 0; i < args[0]; i++) {
 			var gender = randomGender();
 			message.channel.send(`
-			⠀⠀
-------------
-**${randomName()}**
-------------
-*${gender} Porter (10 coins a day)*
-HP: ${roll()}
-Reminds you of a ${randomAnimal()}
+				------------
+				**${randomName()}**
+				------------
+				*${gender} Porter (10 coins a day)*
+				HP: ${roll()}
+				Reminds you of a ${randomAnimal()}
 			`);
 		}
-	
 	},
 };
 
@@ -28,12 +24,8 @@ function roll (){
 	return (Math.floor(Math.random() * 6) + 1)
 }
 
-function randomName(){
-	if (gender == "Male"){
-		return data.maleNames[(Math.floor(Math.random() * data.maleNames.length))]
-	} else {
-		return data.femaleNames[(Math.floor(Math.random() * data.femaleNames.length))]
-	}
+function randomName() {
+	return data.[`${gender.toLowerCase()}Names`][(Math.floor(Math.random() * data[`${gender.toLowerCase()}Names`].length))]
 }
 
 function randomWeapon(){
@@ -52,13 +44,7 @@ function randomFlair(){
 	return data.flair[(Math.floor(Math.random() * data.flair.length))]
 }
 
-function randomGender() {
-	if (Math.random()<0.5){
-		return "Male"
-	} else {
-		return "Female"
-	}
-}	
+function randomGender() => Math.random()<0.5 ? "Male" : "Female"; }
 
 function randomAnimal(){
 	return data.animal[(Math.floor(Math.random() * data.animal.length))]
