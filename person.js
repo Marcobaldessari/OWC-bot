@@ -54,7 +54,11 @@ function getBackground(){
 }
 
 function getFlair(){
-	return data.flair[(Math.floor(Math.random() * data.flair.length))]
+    if (Math.random() < 0.5){
+        return data.flair[(Math.floor(Math.random() * data.flair.length))]
+    } else {
+        return "Reminds you of a " + data.animal[(Math.floor(Math.random() * data.animal.length))]
+    }
 }
 
 function getAnimal(){

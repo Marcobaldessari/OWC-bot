@@ -16,7 +16,7 @@ module.exports = {
 *${char.gender} ${char.type} (${char.price})*
 HP: ${char.hp}
 Carries a ${char.weapon} and a ${char.armour}
-Reminds you of a ${char.animal}
+${char.animal}
 			`);
 		}
 	},
