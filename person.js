@@ -13,7 +13,7 @@ function Character(type, name) {
     };
     rollStats.apply(this);
     this.weapon = getWeapon();
-    this.armor = getArmour();
+    this.armour = getArmour();
     this.background = getBackground();
     this.flair = getFlair();
     this.price = getPrice(this.type.toLowerCase());
@@ -64,8 +64,5 @@ function getAnimal(){
 function getPrice(type){
 	return data.price[type]
 }
-
-var pippo = new Character('Porter');
-console.log(pippo);
 
 module.exports = Character;
