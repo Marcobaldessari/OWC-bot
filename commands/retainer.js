@@ -20,7 +20,7 @@ DIS: ${char.stats.discipline.modifier}   (${char.stats.discipline.rolls})
 WIT: ${char.stats.wits.modifier}   (${char.stats.wits.rolls})
 HP: ${char.hp}
 Carries a ${char.weapon} and a ${char.armour}
-A former ${char.background}, ${char.animal}
+A former ${char.background}. ${char.animal}
 			`);
 		}
 	},
