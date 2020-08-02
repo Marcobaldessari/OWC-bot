@@ -9,6 +9,7 @@ module.exports = {
 		for (let i = 0; i < args[0]; i++) {
 			var char = new Character('retainer');
 			message.channel.send(`
+			⠀
 ------------
 **${char.name}**
 ------------

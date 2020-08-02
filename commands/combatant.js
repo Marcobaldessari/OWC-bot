@@ -9,13 +9,14 @@ module.exports = {
 		for (let i = 0; i < args[0]; i++) {
 			var char = new Character('combatant');
 			message.channel.send(`
-				------------
-				**${char.name}**
-				------------
-				*${char.gender} ${char.type} (${char.price})*
-				HP: ${char.hp}
-				Carries a ${char.weapon} and a ${char.armour}
-				Reminds you of a ${char.animal}
+			⠀
+------------
+**${char.name}**
+------------
+*${char.gender} ${char.type} (${char.price})*
+HP: ${char.hp}
+Carries a ${char.weapon} and a ${char.armour}
+Reminds you of a ${char.animal}
 			`);
 		}
 	},
