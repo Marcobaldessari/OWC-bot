@@ -15,7 +15,7 @@ module.exports = {
 ------------
 *${char.gender} ${char.type} (${char.price})*
 HP: ${char.hp}
-Reminds you of a ${char.animal}
+${char.flair}
 			`);
 		}
 	},
