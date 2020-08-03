@@ -1,5 +1,5 @@
 const data = require('../data.json')
-const Character = require('../person.js')
+const Character = require('../characterBuilder.js')
 
 module.exports = {
 	name: 'character',
