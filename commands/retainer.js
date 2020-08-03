@@ -14,10 +14,10 @@ module.exports = {
 **${char.name}**
 ------------
 *${char.gender} ${char.type} (${char.price})*
-MIG: ${char.stats.might.modifier}   (${char.stats.might.rolls})
-NIM: ${char.stats.nimb.modifier}   (${char.stats.nimb.rolls})
-DIS: ${char.stats.discipline.modifier}   (${char.stats.discipline.rolls})
-WIT: ${char.stats.wits.modifier}   (${char.stats.wits.rolls})
+MIG: ${char.stats.might.modifier}   
+NIM: ${char.stats.nimb.modifier}   
+DIS: ${char.stats.discipline.modifier} 
+WIT: ${char.stats.wits.modifier}   
 HP: ${char.hp}
 Carries a ${char.weapon} and a ${char.armour}
 A former ${char.background}. ${char.flair}
