@@ -7,7 +7,7 @@ module.exports = {
 	execute(message, args) {
 		var char = new Character('player');
 		message.channel.send(`
-			Alright then, we're going to start by rolling some attributes for your new character, shall we?
+			Hey ${message.author.username}, let me help you with rolling stats for a new character.
 			------------
 			MIG: ${char.stats.might.modifier}   (${char.stats.might.rolls})
 			NIM: ${char.stats.nimb.modifier}   (${char.stats.nimb.rolls})
