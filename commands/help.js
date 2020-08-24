@@ -14,12 +14,13 @@ module.exports = {
             // data.push('Here\'s a list of all my commands:');
             // data.push(commands.map(command => command.name).join(', '));
             // data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
-            data.push('Here\'s what I can do:');
-            data.push('**character:** roll some fresh stats to create a new character');
+            data.push('Here are my commands:');
+            data.push('**character:** roll some fresh stats for a new character');
             data.push('**hire [x]:** look around town for some help, generating a d6 or [x] random hirelings');
-            data.push('**porter [x]:** generate [x] random porters');
-            data.push('**combatant [x]:** generate [x] random combatants');
-            data.push('**retainer [x]:** generate [x] random retainers');
+            data.push('**porter:** generate random porters');
+            data.push('**combatant:** generate random combatants');
+            data.push('**retainer:** generate random retainers');
+            data.push('**share:** get a link to install OWC bot on another server');
 
             
             return message.author.send(data, { split: true })
