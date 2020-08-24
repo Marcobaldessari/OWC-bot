@@ -15,10 +15,11 @@ module.exports = {
 			people = Math.ceil(Math.random()*6);
 		}
 		if (people == 1) {
-			message.channel.send(`Hey ${message.author.username}, I'm sorry but I found only one person willing to assist you in your expedition.`)
+			message.channel.send(`I'm sorry but I found only one person willing to assist you in your expedition.`)
 		} else {
-			message.channel.send(`Hey ${message.author.username}, I found ${people} people willing to assist you in your expedition.`)
+			message.channel.send(`I found ${people} people willing to assist you in your expedition.`)
 		}
+
 		for (let i = 0; i < people; i++) {
 			var rolls = roll();
 			if (rolls >= 1 && rolls <= 3 ){
