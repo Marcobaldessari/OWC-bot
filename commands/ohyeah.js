@@ -1,8 +1,8 @@
 module.exports = {
 	name: 'ohyeah',
-	description: 'Install the bot on other servers',
+	description: 'Introduce yourself',
 	execute(message, args) {
-        message.channel.send(`Maybe I can help you with that! 
+        message.channel.send(`Hey I'm OWC bot and maybe I can help you with that! 
         If you head to #barrowmaze-dice-rolling and type /character I can roll attributes for you 🎲`)
 	},
 };
