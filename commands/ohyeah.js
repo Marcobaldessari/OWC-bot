@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'share',
+	name: 'ohyeah',
 	description: 'Install the bot on other servers',
 	execute(message, args) {
         message.channel.send(`Maybe I can help you with that! 
