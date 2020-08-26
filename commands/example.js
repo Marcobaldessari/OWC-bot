@@ -2,12 +2,12 @@ const data = require('../data.json')
 const Character = require('../characterBuilder.js')
 
 module.exports = {
-	name: 'character',
-	description: 'Character generation helper',
+	name: 'example',
+	description: 'Example of a generated character',
 	execute(message, args) {
 		var char = new Character('player');
 		message.channel.send(`
-Alright let's roll sone stats for a new character.
+Here is a fresh example of a randomly generated character
 ------------
 MIG: ${char.stats.might.modifier}   *(${char.stats.might.rolls})*
 NIM: ${char.stats.nimb.modifier}   *(${char.stats.nimb.rolls})*
