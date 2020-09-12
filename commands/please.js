@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'ohyeah',
-	description: 'Introduce bot',
+	name: 'please',
+	description: 'please help me becoming a real bot',
 	execute(message, args) {
 		message.channel.send(`bip bop`)
 		message.channel.send(`please help me becoming a real bot`)
