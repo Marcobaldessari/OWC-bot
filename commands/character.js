@@ -7,7 +7,7 @@ module.exports = {
 	execute(message, args) {
 		var char = new Character('player');
 		message.channel.send(`
-Alright let's roll some stats for a new character.
+Rolling stats for a new character, may luck be on your side!
 ------------
 MIG: ${char.stats.might.modifier}   *(${char.stats.might.rolls})*
 NIM: ${char.stats.nimb.modifier}   *(${char.stats.nimb.rolls})*
